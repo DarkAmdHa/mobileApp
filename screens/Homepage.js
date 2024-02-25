@@ -1,37 +1,43 @@
 import React, { useContext, useState } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView,StatusBar } from "react-native";
 import { AuthContext } from "../store/auth-context";
 import Feed from "../components/Posts/Feed";
 import BottomNav from "../components/ui/BottomNav";
 import Benefits from "../components/Benefits/Benefits";
 import Settings from "../components/Settings/Settings";
-
-
+import Dashboard from "../components/Dashboard/Dashboard";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Homepage = (props) => {
   const { token, logout } = useContext(AuthContext);
 
-  const [currentMainPage, setCurrentMainPage] = useState("Home")
+  const [currentMainPage, setCurrentMainPage] = useState("Dashboard");
 
-  const handleChange = (page) =>{
-    console.log(page)
-    setCurrentMainPage(page)
-  }
+  const handleChange = (page) => {
+    console.log(page);
+    setCurrentMainPage(page);
+  };
   return (
-      <View style={styles.container}>
-        
-        <View style={styles.mainContent}>
-          {currentMainPage === "Home" ? (
-            <Feed />
-          ) : currentMainPage === "Benefits" ? (
-            <Benefits />
-            ) :   currentMainPage === "Settings" && (
-              <Settings />
-          )}
-        </View>
-        
-        <BottomNav currentMainPage={currentMainPage} onChange={handleChange}/>
+    <SafeAreaView style={styles.container}>
+      <View  style={styles.container}>
+      <LinearGradient
+      colors={["#0d1021", "#603c68"]} style={styles.mainContent}>
+        {currentMainPage === "Dashboard" ? (
+          <Dashboard />
+        ) : currentMainPage === "Home" ? (
+          <Feed />
+        ) : currentMainPage === "Benefits" ? (
+          <Benefits />
+        ) : (
+          currentMainPage === "Settings" && <Settings />
+        )}
+      </LinearGradient>
+ 
+
+      <BottomNav currentMainPage={currentMainPage} onChange={handleChange} />
       </View>
+      
+    </SafeAreaView>
   );
 };
 
@@ -99,8 +105,8 @@ const styles = StyleSheet.create({
   },
   navItemText: {
     color: "#333",
-    fontSize: 12
-  }
+    fontSize: 12,
+  },
 });
 
 export default Homepage;

@@ -4,17 +4,25 @@ import IconButton from "./IconButton"
 function BottomNav({currentMainPage, onChange}) {
 
     const mainPages = [
+      {
+        title: "Home",
+        icon: "home"
+      },
+      {
+        title: "Social",
+        icon: "compass"
+      },
         {
             title: "Benefits",
             icon: "gift"
         },
         {
-            title: "Home",
-            icon: "home"
+            title: "Redeem",
+            icon: "wallet"
         },
         {
-            title: "Settings",
-            icon: "settings"
+            title: "Account",
+            icon: "person-circle"
         },
     ]
   return (
@@ -24,7 +32,7 @@ function BottomNav({currentMainPage, onChange}) {
             <IconButton
                 icon={page.icon}
                 color={page.title === currentMainPage ? "#2f3164" : "#ccd"}
-                size={16}
+                size={20}
             />
             <Text style={[styles.navItemText, page.title === currentMainPage && styles.activeNavItem]}>{page.title}</Text>
             </TouchableOpacity>
@@ -39,7 +47,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      backgroundColor: "#fff", // Change color as needed
+      backgroundColor: "#333", // Change color as needed
       paddingVertical: 5,
       paddingHorizontal: 20,
       bottom: 0,
@@ -60,7 +68,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
     },
     navItemText: {
-      color: "#333",
+      color: "#fff",
       fontSize: 12
     },
     activeNavItem: {

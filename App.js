@@ -36,7 +36,7 @@ function AuthenticatedStack() {
     <Stack.Navigator
       screenOptions={{
         headerTintColor: '#2f3164',
-        // headerShown: false
+        headerShown: false
       }}
     >
       <Stack.Screen
