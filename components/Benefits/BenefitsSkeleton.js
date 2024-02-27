@@ -8,6 +8,7 @@ import {
   Text,
 } from "react-native";
 import IconButton from "../ui/IconButton";
+import { LinearGradient } from "expo-linear-gradient";
 
 
 function BenefitsSkeleton({ count }) {
@@ -49,6 +50,10 @@ function BenefitsSkeleton({ count }) {
   }, []);
 
   return (
+    <LinearGradient
+    colors={["#0d1021", "#603c68"]}
+    style={{flex: 1}}
+  >
     <ScrollView style={styles.skeletonContainer}>
             <View style={styles.filters}>
                 <IconButton
@@ -84,6 +89,7 @@ function BenefitsSkeleton({ count }) {
         </View>
      
     </ScrollView>
+    </LinearGradient>
   );
 }
 
@@ -91,15 +97,14 @@ export default BenefitsSkeleton;
 
 const styles = StyleSheet.create({
     filters: {
-        flexDirection: 'row-reverse',
-        alignItems: 'center',
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingHorizontal: 10 
+      flexDirection: "row-reverse",
+      alignItems: "center",
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingHorizontal: 10,
     },
   skeletonContainer: {
     flex: 1,
-    backgroundColor: 'aliceblue',
   },
   benefitsContainer: {
     flexDirection: 'row',
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: "48%",
-    backgroundColor: "#fff",
+    backgroundColor: "#333",
     borderRadius: 10,
     marginBottom: 20,
     shadowColor: "#000",

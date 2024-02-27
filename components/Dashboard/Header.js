@@ -17,7 +17,7 @@ function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    paddingTop: 30,
+    paddingTop: 40,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffd5f2',
     borderRadius: 4,
     position: 'absolute',
-    top: 5,
-    right: 5,
+    top: 0,
+    right: 0,
   },
 });
 

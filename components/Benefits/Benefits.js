@@ -10,6 +10,7 @@ import {
 import benefitsData from "../../util/benefits";
 import BenefitsSkeleton from "./BenefitsSkeleton";
 import IconButton from "../ui/IconButton";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Benefits = () => {
   const [data, setData] = useState([]);
@@ -47,6 +48,10 @@ const Benefits = () => {
   if (initialLoading) return <BenefitsSkeleton count={6} />;
 
   return (
+    <LinearGradient
+    colors={["#0d1021", "#603c68"]}
+    style={{flex: 1}}
+  >
     <FlatList
       data={data}
       renderItem={renderItem}
@@ -65,17 +70,18 @@ const Benefits = () => {
       onEndReached={loadMoreBenefits}
       ListHeaderComponent={() => (
         <View style={styles.filters}>
-          <IconButton icon="filter" color="#2f3164" size={16} />
-          <Text>Filters</Text>
+          <IconButton icon="filter" color="#fff" size={16} />
+          <Text style={{color: "#fff", marginRight: 10}}>Filters</Text>
         </View>
       )}
       ListFooterComponent={() =>
         // Conditionally render the spinner as ListFooterComponent
         !isAtEnd && (
-          <ActivityIndicator size="large" style={{ paddingVertical: 10 }} />
+          <ActivityIndicator color="#fff" size="large" style={{ paddingVertical: 10 }} />
         )
       }
     />
+    </LinearGradient>
   );
 };
 
@@ -83,18 +89,17 @@ const styles = StyleSheet.create({
   filters: {
     flexDirection: "row-reverse",
     alignItems: "center",
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingTop: 10,
+    paddingBottom: 10,
     paddingHorizontal: 10,
   },
   listContainer: {
     flex: 1,
-    backgroundColor: "aliceblue",
     width: "100%"
   },
   card: {
     width: "48%",
-    backgroundColor: "#fff",
+    backgroundColor: "#333",
     borderRadius: 10,
     marginBottom: 20,
     shadowColor: "#000",
@@ -116,6 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     padding: 10,
+    color: "#fff"
   },
 });
 

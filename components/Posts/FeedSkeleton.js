@@ -42,6 +42,10 @@ function FeedSkeleton({count}) {
     }, []);
 
   return (
+    <LinearGradient
+    colors={["#0d1021", "#603c68"]}
+    style={{flex: 1}}
+  >
     <ScrollView style={styles.skeletonContainer}>
     {[...Array(count)].map(i=>(
 
@@ -60,6 +64,8 @@ function FeedSkeleton({count}) {
 
                 </Animated.View>
             <LinearGradient
+
+            
       colors={["rgba(255,255,255,0)", "#fff", "rgba(255,255,255,0)"]}
       start={[0, 0]} end={[1, 0]}
     ></LinearGradient>
@@ -74,6 +80,7 @@ function FeedSkeleton({count}) {
       </Animated.View>
     ))}
     </ScrollView>
+    </LinearGradient>
   )
 }
 
@@ -81,14 +88,21 @@ export default FeedSkeleton
 
 const styles = StyleSheet.create({
     skeletonContainer: {
-        width: "100%",
+        flex: 1,
+        marginTop: 20,
+        marginHorizontal: 10,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        backgroundColor: '#333',
+        overflow: 'hidden',
     },
     card: {
-     overflow: "hidden",
-      backgroundColor: "#fff",
-      borderRadius: 0,
-      padding: 12,
-      position: 'relative'
+      backgroundColor: "transparent",
+      padding: 20,
+      shadowColor: "#000",
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 2,
     },
     cardPassingLine: {
         position: 'absolute',

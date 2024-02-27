@@ -11,6 +11,7 @@ import {
 import { posts } from "../../util/posts";
 import IconButton from "../ui/IconButton";
 import FeedSkeleton from "./FeedSkeleton";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Feed = () => {
   const [data, setData] = useState([]);
@@ -65,14 +66,14 @@ const Feed = () => {
             style={styles.button}
             onPress={() => handleLike(item.id)}
           >
-            <IconButton icon="thumbs-up" color="black" size={16} />
+            <IconButton icon="thumbs-up" color="#fff" size={16} />
             <Text style={styles.buttonText}>{item.likes}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
             onPress={() => handleDislike(item.id)}
           >
-            <IconButton icon="thumbs-down" color="black" size={16} />
+            <IconButton icon="thumbs-down" color="#fff" size={16} />
             <Text style={styles.buttonText}>{item.dislikes}</Text>
           </TouchableOpacity>
         </View>
@@ -81,35 +82,50 @@ const Feed = () => {
   };
   if (initialLoading) return <FeedSkeleton count={3} />;
   return (
+    <LinearGradient
+    colors={["#0d1021", "#603c68"]}
+    style={{flex: 1}}
+  >
     <FlatList
       data={data}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
       style={styles.listStyles}
-      onEndReached={loadMorePosts} 
+      onEndReached={loadMorePosts}
+
       ListFooterComponent={() => ( // Conditionally render the spinner as ListFooterComponent
-        !isAtEnd && <ActivityIndicator size="large" style={{ paddingVertical: 10 }} />
+        !isAtEnd && <ActivityIndicator color="#fff"  size="large" style={{ paddingVertical: 10 }} />
       )}
     />
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
   listStyles: {
-    width: "100%",
+    flex: 1,
+    marginTop: 20,
+    marginHorizontal: 10,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    backgroundColor: '#333',
+    overflow: 'hidden',
+
   },
   card: {
-    backgroundColor: "#fff",
-    padding: 12,
+    backgroundColor: "transparent",
+    padding: 20,
     shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 8,
+    color: "#fff"
   },
   image: {
     width: "100%",
@@ -120,6 +136,7 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 16,
     marginBottom: 8,
+    color: "#fff"
   },
   buttons: {
     flexDirection: "row",
@@ -132,7 +149,7 @@ const styles = StyleSheet.create({
     gap: 0,
   },
   buttonText: {
-    color: "#000",
+    color: "#fff",
     marginLeft: 0,
   },
 });

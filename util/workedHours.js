@@ -1,0 +1,16 @@
+export default workedHoursData = [
+    { date: 'Monday 10/27/2024', total: '4 hours', timeSlots: ['9PM - 10PM', '2AM - 3AM'] },
+    { date: 'Tuesday 10/28/2024', total: '5 hours', timeSlots: ['8PM - 10PM', '1AM - 2AM'] },
+    { date: 'Wednesday 10/29/2024', total: '3 hours', timeSlots: ['10PM - 11PM', '3AM - 4AM'] },
+    { date: 'Thursday 10/30/2024', total: '6 hours', timeSlots: ['7PM - 9PM', '12AM - 1AM'] },
+    { date: 'Friday 10/31/2024', total: '4 hours', timeSlots: ['6PM - 7PM', '11PM - 12AM'] },
+    { date: 'Saturday 11/1/2024', total: '7 hours', timeSlots: ['5PM - 8PM', '10PM - 11PM'] },
+    { date: 'Sunday 11/2/2024', total: '8 hours', timeSlots: ['4PM - 6PM', '9PM - 10PM'] },
+    { date: 'Monday 11/3/2024', total: '6 hours', timeSlots: ['9PM - 11PM', '1AM - 2AM'] },
+    { date: 'Tuesday 11/4/2024', total: '5 hours', timeSlots: ['8PM - 10PM', '12AM - 1AM'] },
+    { date: 'Wednesday 11/5/2024', total: '4 hours', timeSlots: ['7PM - 9PM', '11PM - 12AM'] },
+    { date: 'Thursday 11/6/2024', total: '5 hours', timeSlots: ['6PM - 8PM', '10PM - 11PM'] },
+    { date: 'Friday 11/7/2024', total: '7 hours', timeSlots: ['5PM - 8PM', '9PM - 10PM'] },
+    { date: 'Saturday 11/8/2024', total: '8 hours', timeSlots: ['4PM - 6PM', '8PM - 10PM'] },
+    { date: 'Sunday 11/9/2024', total: '9 hours', timeSlots: ['3PM - 6PM', '7PM - 9PM'] },
+  ];
