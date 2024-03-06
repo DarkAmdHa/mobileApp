@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
+import IconButton from "../ui/IconButton";
+import { useNavigation } from "@react-navigation/native";
+import { AuthorizedNavContext } from "../../screens/Homepage";
 
 function FeaturedBenefits() {
+  const navigation = useNavigation()
   const [benefits, setBenefits] = useState([
     {
-      title: "Benefit 1",
+      title: "Lifestyle Savings",
       image: "https://picsum.photos.com/450",
+      icon: "play"
     },
     {
-      title: "Benefit 1",
+      title: "Health Cash Plan",
       image: "https://picsum.photos.com/450",
+      icon: "heart"
     },
     {
       title: "Benefit 1",
@@ -20,18 +26,25 @@ function FeaturedBenefits() {
       image: "https://picsum.photos.com/450",
     },
   ]);
+
+  const {setCurrentScreen}= useContext(AuthorizedNavContext)
+  const handleNavChange = (screenName)=>{
+    setCurrentScreen("");
+    navigation.replace(screenName)
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Featured Benefits</Text>
+      
 
       <View style={styles.carousel}>
         <View style={styles.carouselContainer}>
           {benefits.length ? (
             benefits.map((benefit) => (
-              <View style={styles.card}>
-                <Image source={{ uri: benefit.image }} style={styles.image} />
-                <Text style={styles.title}>{benefit.cardTitle}</Text>
-              </View>
+              <TouchableOpacity style={styles.card} onPress={handleNavChange.bind(this,benefit.title)}>
+                <IconButton size={50} icon={benefit.icon} color="#333"/>
+                <Text style={styles.cartTitle}>{benefit.title}</Text>
+              </TouchableOpacity>
             ))
           ) : (
             <p>No Benefits yet </p>
@@ -39,9 +52,9 @@ function FeaturedBenefits() {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.viewMoreButton}>
+      {/* <TouchableOpacity style={styles.viewMoreButton}>
         <Text style={styles.viewMoreText}>View More</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }
@@ -61,11 +74,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     color: "#fff",
   },
-  card: {
-    backgroundColor: "#e3e3e3",
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 10,
+  cartTitle: {
+    fontSize: 20,
+    marginBottom: 16,
+    color: "#333",
+    textAlign: 'center'
   },
   cardText: {
     fontSize: 16,
@@ -84,7 +97,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: "48%",
-    backgroundColor: "#333",
+    backgroundColor: "#ffd5f2",
     borderRadius: 10,
     marginBottom: 20,
     shadowColor: "#000",
@@ -94,7 +107,15 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation: 5,
+
+
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   image: {
     width: "100%",
@@ -106,7 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     padding: 10,
-    color: "#fff"
+    color: "#000"
   },
   carouselContainer:{
     flex: 1,

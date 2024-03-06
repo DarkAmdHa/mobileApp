@@ -12,6 +12,7 @@ import Input from "./Input";
 import { Colors } from "../../constants/styles";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+
 function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredName, setEnteredName] = useState("");
@@ -204,6 +205,7 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
                 fontWeight: "600",
               }}
             >
+
               <FontAwesome5 name="apple" size={25} color="#000" /> Apple
             </Text>
           </TouchableOpacity>
@@ -260,7 +262,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 15,
   },
-
+  image:{
+    height: 25,
+    width: "auto"
+  },
   secureTextEntry: {
     padding: 10,
   },

@@ -18,6 +18,8 @@ import Store from "./Store";
 import HolidayBook from "./HolidayBook";
 import Payslip from "./Payslip";
 import { LinearGradient } from "expo-linear-gradient";
+import LifestyleSavings from "./LifestyleSavings";
+import HealthCashPlan from "./HealthCashPlan";
 
 const Stack = createNativeStackNavigator();
 
@@ -64,6 +66,8 @@ function AuthorizedStack() {
             <Stack.Screen name="Feed" component={Feed} />
             <Stack.Screen name="Benefits" component={Benefits} />
             <Stack.Screen name="Settings" component={Settings} />
+            <Stack.Screen name="Lifestyle Savings" component={LifestyleSavings} />
+            <Stack.Screen name="Health Cash Plan" component={HealthCashPlan} />
           </Stack.Navigator>
         </LinearGradient>
        

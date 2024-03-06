@@ -1,12 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import IconButton from '../ui/IconButton';
+import CompanyLogo from '../ui/CompanyLogo'
 
 function Header() {
   return (
     <View style={styles.header}>
       <IconButton  color="#fff" size={24} icon="menu" />
-      <Text style={styles.logo}>Grantrow</Text>
+      <CompanyLogo/>
+      {/* <Text style={styles.logo}>Grantrow</Text> */}
       <View style={styles.notificationContainer}>
         <IconButton color="#fff" size={24} icon="notifications-outline" />
         <View style={styles.notificationDot} />

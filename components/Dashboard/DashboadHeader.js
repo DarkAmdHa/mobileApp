@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import CompanyLogo from '../ui/CompanyLogo';
+import UserAvatar from '../ui/UserAvatar';
 
 function DashboardHeader() {
   const [userName, setUserName] = useState("Test");
@@ -17,7 +17,9 @@ function DashboardHeader() {
         </View>
       </View>
 
-      <CompanyLogo/>
+
+      <UserAvatar />
+      {/* <CompanyLogo/> */}
 
     </View>
   );
